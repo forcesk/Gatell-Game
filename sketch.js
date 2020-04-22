@@ -29,7 +29,7 @@ function setup() {
   music.setLoop(true);
   music.play();
 
-  createP(' <a href="https://forcesk.github.io/Gatell-Game/" target="_blank">JUGAR DE NUEVO</a>')
+  createP(' <a href="https://forcesk.github.io/Gatell-Game/">JUGAR DE NUEVO</a>')
 
   createP('<br/>')
   createP('<br/>')
