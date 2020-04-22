@@ -216,7 +216,7 @@ class Train {
     fill(255,127);
     //rect(this.x, this.y, this.r, this.r)
 
-    image(train,this.x, this.y, this.r, this.r)
+    image(train,this.x, this.y-10, this.r, this.r)
 
   }
 }
