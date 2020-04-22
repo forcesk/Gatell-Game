@@ -23,7 +23,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(700, 400);
+  createCanvas(900, 600);
   unicorn = new Unicorn();
   music.playMode('restart');
   music.setLoop(true);
@@ -55,6 +55,17 @@ function keyPressed() {
 
  function mousePressed()
 {
+
+  if (restart){
+    restart = false;
+    score = 0;
+    scollBg = 0;
+    scroll = 10;
+    trains = [];
+    music.play();
+    loop();
+  }
+
 	 unicorn.jump();
       return false;
 }
