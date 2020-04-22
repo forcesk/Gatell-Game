@@ -152,7 +152,7 @@ function draw() {
   unicorn.show()
   unicorn.move()
 
-  scroll += 0.02;
+  scroll += 0.03;
   scrollBg += scroll / 5;
 }
 
