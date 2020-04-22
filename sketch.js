@@ -23,7 +23,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight-(windowHeight/5));
   unicorn = new Unicorn();
   music.playMode('restart');
   music.setLoop(true);
