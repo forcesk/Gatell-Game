@@ -115,7 +115,7 @@ function draw() {
     scrollBg = 0;
   }
 
-  if (random(1) < 0.90 && frameCount % 45 == 0) {
+  if (random(1) < 0.90 && frameCount % 55 == 0) {
     trains.push(new Train())
 
   }
