@@ -124,7 +124,7 @@ function draw() {
     whistle.play()
   }
 
-  if (frameCount % 5 == 0) {
+  if (frameCount % 10 == 0) {
     score++;
   }
 
