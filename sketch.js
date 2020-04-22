@@ -115,7 +115,7 @@ function draw() {
     scrollBg = 0;
   }
 
-  if (random(1) < 0.75 && frameCount % 50 == 0) {
+  if (random(1) < 0.90 && frameCount % 45 == 0) {
     trains.push(new Train())
 
   }
@@ -152,7 +152,7 @@ function draw() {
   unicorn.show()
   unicorn.move()
 
-  scroll += 0.005;
+  scroll += 0.008;
   scrollBg += scroll / 5;
 }
 
