@@ -23,18 +23,21 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(900, 600);
+  createCanvas(windowWidth, windowHeight);
   unicorn = new Unicorn();
   music.playMode('restart');
   music.setLoop(true);
   music.play();
 
+  createP(' <a href="https://forcesk.github.io/Gatell-Game/" target="_blank">JUGAR DE NUEVO</a>')
+
   createP('<br/>')
   createP('<br/>')
 
-  createP('Based on a <a href="https://thecodingtrain.com/CodingChallenges/147-chrome-dinosaur" target="_blank">coding challenge</a> by <a href="https://shiffman.net/" target="_blank">Dan Shiffman')
-  createP('Based on a <a href="https://editor.p5js.org/swiftpotato/sketches/Ca6Q58Gq2" target="_blank">This dot jumper by Swiftpotato</a>')
-  createP('Based on a <a href="https://www.facebook.com/eldeformaTV/videos/884599352012036/UzpfSTMyNzA5NDg0MDc0ODg3MzoyMDUzNDk0NDIxNDQyMjMx/" target="_blank">El deforma TV</a>')
+
+  createP('Based on <a href="https://thecodingtrain.com/CodingChallenges/147-chrome-dinosaur" target="_blank">coding challenge</a> by <a href="https://shiffman.net/" target="_blank">Dan Shiffman')
+  createP('Based on <a href="https://editor.p5js.org/swiftpotato/sketches/Ca6Q58Gq2" target="_blank">This dot jumper by Swiftpotato</a>')
+  createP('Based on <a href="https://www.facebook.com/eldeformaTV/videos/884599352012036/UzpfSTMyNzA5NDg0MDc0ODg3MzoyMDUzNDk0NDIxNDQyMjMx/" target="_blank">El deforma TV</a>')
 
 }
 
