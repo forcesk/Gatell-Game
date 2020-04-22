@@ -10,13 +10,13 @@ let mv = 0;
 let flag = 0;
 
 function preload() {
-  music = loadSound('theme.mp3');  
+  music = loadSound('theme.mp3');
   ding = loadSound('smw_jump.wav');
   whistle = loadSound('quedate.mp3');
   bg = loadImage('bgn1.png');
   train = loadImage('virus.png');
   jumper = loadImage('test2.png');
-  
+
   for (let i = 0; i < 2; i++) {
     failSounds[i] = loadSound(`fail${i+1}.mp3`);
   }
@@ -28,21 +28,13 @@ function setup() {
   music.playMode('restart');
   music.setLoop(true);
   music.play();
-  
-  createP('Controls: ')
-  createP('Space to jump. It\'s really that simple!')
-  createP('<hr>');
-  createP('Plot:');
-  createP('Everytime Dan forgets the this dot a train leaves the train station. The supply of trains is running out and you equals sign have be assigned the task of letting him know and saving the train station before he runs out of this dots. Quick! Get on your unicorn and avoid the oncoming trains!')
-  createP('<hr>');
-  createP('Credit:')
-    createP('Based on a <a href="https://thecodingtrain.com/CodingChallenges/147-chrome-dinosaur" target="_blank">coding challenge</a> by <a href="https://shiffman.net/" target="_blank">Dan Shiffman')
-  createP('The Coding Train designs and characters by <a href="https://jasonheglund.com/" target="_blank">Jason Heglund</a>')
-  createP('<a href="https://soundcloud.com/kristianpedersen/this-dot-feat-daniel-shiffman" target="_blank">This Dot Song</a> by <a href="https://soundcloud.com/kristianpedersen" target="_blank">Kristian Pedersen')
+
+  createP('Based on a <a href="https://thecodingtrain.com/CodingChallenges/147-chrome-dinosaur" target="_blank">coding challenge</a> by <a href="https://shiffman.net/" target="_blank">Dan Shiffman')
+  createP('Based on a <a href="https://editor.p5js.org/swiftpotato/sketches/Ca6Q58Gq2" target="_blank">This dot jumper by Swiftpotato</a>')
 
 }
 
-function keyPressed() { 
+function keyPressed() {
   if (restart){
     restart = false;
     score = 0;
@@ -56,8 +48,8 @@ function keyPressed() {
       unicorn.jump();
       return false;
   }
-  
-  
+
+
 }
 
 
@@ -65,49 +57,49 @@ function keyPressed() {
 {
 	 unicorn.jump();
       return false;
-}    
+}
 
 
 function draw() {
-  
+
    mv = mv+1;
-  
+
   if(mv==22){
-    
+
   if(flag == 0){
     jumper = loadImage('move2.png');
-      flag = 1;    
+      flag = 1;
       mv= 0;
   }
-    
+
 
   }
-  
-  
+
+
    if(mv==22){
-    
+
   if(flag == 1){
     jumper = loadImage('test2.png');
       flag = 0;
      mv= 0;
   }
-   
+
   }
-  
-  
-  
-  
-  
+
+
+
+
+
   image(bg, -scrollBg, 0, width,height);
   image(bg, -scrollBg + width, 0,width,height);
-  
+
   if (scrollBg > width) {
     scrollBg = 0;
   }
-  
+
   if (random(1) < 0.75 && frameCount % 50 == 0) {
     trains.push(new Train())
-    
+
   }
 
   if (score % 100 == 0 && score != 0) {
@@ -117,12 +109,12 @@ function draw() {
   if (frameCount % 5 == 0) {
     score++;
   }
-  
+
   fill(255)
   textSize(32);
   textFont('monospace');
   text(`Score: ${score}`, 10, 30);
-      
+
   for (let t of trains) {
     t.move();
     t.show();
@@ -132,16 +124,16 @@ function draw() {
       music.stop();
       let sound = random(failSounds)
       sound.play();
-      
+
       fill(255)
       text(`Game Over! Estás contagiado!`, 45, height/2)
       restart = true;
     }
   }
-  
+
   unicorn.show()
   unicorn.move()
-  
+
   scroll += 0.005;
   scrollBg += scroll / 5;
 }
@@ -159,9 +151,9 @@ class Unicorn {
 
     this.y += this.vy;
     this.vy += this.gravity;
-    
-    
-    this.y = constrain(this.y,0,height-this.r)       
+
+
+    this.y = constrain(this.y,0,height-this.r)
 
   }
 
@@ -170,12 +162,12 @@ class Unicorn {
     if (this.y == height - this.r) {
       this.vy = -32;
       ding.play();
-      
+
     }
   }
 
   collide(other) {
-      
+
       let hitX = this.x + this.r > other.x &&
                  this.x < other.x + other.r
       let hitY = this.y + this.r > other.y
@@ -186,27 +178,27 @@ class Unicorn {
     fill(255,127);
     //rect(this.x, this.y, this.r, this.r)
     image(jumper,this.x, this.y, this.r, this.r)
-     
+
   }
 }
 
 class Train {
-  constructor() {  
+  constructor() {
     this.r = 75;
     this.x = width-10;
     this.y = height - this.r+10;
   }
-  
+
   move(){
-        
+
     this.x -= scroll;
   }
 
   show() {
     fill(255,127);
     //rect(this.x, this.y, this.r, this.r)
-    
+
     image(train,this.x, this.y, this.r, this.r)
-    
+
   }
 }
