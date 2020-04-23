@@ -120,7 +120,7 @@ function draw() {
 
   }
 
-  if (score % 50 == 0 && score != 0) {
+  if (score % 40 == 0 && score != 0) {
     whistle.play()
   }
 
